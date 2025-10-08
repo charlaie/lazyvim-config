@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd("User", {
         args = { query = word }
       })
     end, { desc = 'Find and replace word under cursor' })
-    -- Search in files with word under cursor
+    -- Search in files with word under curor
     vim.keymap.set('n', '<leader>sf', function()
       local word = vim.fn.expand('<cword>')
       vscode.action('workbench.action.findInFiles', {
@@ -85,6 +85,11 @@ vim.api.nvim_create_autocmd("User", {
     vim.keymap.set('n', '<leader>z', function()
       vscode.action('workbench.action.toggleZenMode')
     end, { desc = 'Toggle Zen mode' })
+
+    -- Emmet
+    vim.keymap.set({ 'n', 'v' }, '<leader>xe', function()
+      vscode.action('editor.emmet.action.wrapWithAbbreviation')
+    end, { desc = 'Emmet wrap with abbrevication' })
   end
 })
 return {}
