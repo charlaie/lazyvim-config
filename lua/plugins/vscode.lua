@@ -117,6 +117,15 @@ vim.api.nvim_create_autocmd("User", {
     keymap("v", "gs", function()
       vscode.action("git.stageSelectedRanges")
     end, { desc = "Stage selected lines" })
+    -- Go to hunks
+    keymap("n", "]h", function()
+      vscode.action("workbench.action.compareEditor.nextChange")
+      vscode.action("workbench.action.editor.nextChange")
+    end, { desc = "Next hunk" })
+    keymap("n", "[h", function()
+      vscode.action("workbench.action.compareEditor.previousChange")
+      vscode.action("workbench.action.editor.previousChange")
+    end, { desc = "Previous hunk" })
 
     -- Zen mode
     keymap("n", "<leader>uz", function()
