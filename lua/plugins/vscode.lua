@@ -136,6 +136,9 @@ vim.api.nvim_create_autocmd("User", {
     keymap({ "n", "v" }, "<leader>xe", function()
       vscode.action("editor.emmet.action.wrapWithAbbreviation")
     end, { desc = "Emmet wrap with abbrevication" })
+    keymap({ "n", "v" }, "<leader>xd", function()
+      vscode.action("editor.emmet.action.removeTag")
+    end, { desc = "Emmet remove tag" })
   end,
 })
 return {}

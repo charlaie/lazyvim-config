@@ -6,6 +6,7 @@ vim.keymap.set("i", "jj", "<ESC>", { silent = true, noremap = true, desc = "Exit
 vim.keymap.set("v", "D", '"_d', { silent = true, noremap = true, desc = "Delete without yank" })
 vim.keymap.set("v", "u", "<ESC>u", { noremap = true, silent = true, desc = "Undo in visual mode" })
 vim.keymap.set("v", "U", "<Nop>", { noremap = true, silent = true, desc = "Disable uppercase in visual mode" })
+vim.keymap.set("n", "gp", "`[v`]", { noremap = true, silent = true, desc = "Select previously changed or yanked text" })
 vim.keymap.set("n", "<C-d>", function()
   vim.wo.scrolloff = 999
   vim.defer_fn(function()
