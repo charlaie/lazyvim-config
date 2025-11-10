@@ -109,12 +109,18 @@ vim.api.nvim_create_autocmd("User", {
       "<cmd>call VSCodeNotify('workbench.action.files.newUntitledFile')<cr>",
       { desc = "New File" }
     )
+    keymap("n", "<leader>fp", function()
+      vscode.action("workbench.action.openRecent")
+    end, { desc = "Open Recent Projects" })
+    keymap("n", "<leader>fr", function()
+      vscode.action("workbench.action.openRecent")
+    end, { desc = "Open Recent Projects" })
 
     -- Git
     keymap("n", "<leader>gs", function()
       vscode.action("workbench.view.scm")
     end, { desc = "Open source control" })
-    keymap("v", "gs", function()
+    keymap("v", "gS", function()
       vscode.action("git.stageSelectedRanges")
     end, { desc = "Stage selected lines" })
     -- Go to hunks
