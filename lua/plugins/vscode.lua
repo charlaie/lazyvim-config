@@ -80,8 +80,23 @@ vim.api.nvim_create_autocmd("User", {
     )
 
     -- Go to problems
-    keymap("n", "]d", "<cmd>call VSCodeNotify('editor.action.marker.nextInFiles')<cr>", { desc = "Prev Diagnostic" })
-    keymap("n", "[d", "<cmd>call VSCodeNotify('editor.action.marker.prevInFiles')<cr>", { desc = "Next Diagnostic" })
+    keymap("n", "<leader>sd", function()
+      vscode.action("workbench.actions.view.problems")
+    end, { desc = "View Diagnostics" })
+    keymap("n", "]d", "<cmd>call VSCodeNotify('editor.action.marker.next')<cr>", { desc = "Prev Diagnostic" })
+    keymap("n", "[d", "<cmd>call VSCodeNotify('editor.action.marker.prev')<cr>", { desc = "Next Diagnostic" })
+    keymap(
+      "n",
+      "]D",
+      "<cmd>call VSCodeNotify('editor.action.marker.nextInFiles')<cr>",
+      { desc = "Prev Diagnostic In Files" }
+    )
+    keymap(
+      "n",
+      "[D",
+      "<cmd>call VSCodeNotify('editor.action.marker.prevInFiles')<cr>",
+      { desc = "Next Diagnostic In Files" }
+    )
 
     -- Buffers
     keymap(
@@ -98,7 +113,7 @@ vim.api.nvim_create_autocmd("User", {
     )
 
     -- Search symbol by type
-    keymap("n", "<leader>ss", "<cmd>call VSCodeNotify('workbench.action.quickOpen', '@:')<cr>")
+    keymap("n", "<leader>ss", "<cmd>call VSCodeNotify('workbench.action.quickOpen', '@)<cr>")
     keymap("n", "<leader>sS", "<cmd>call VSCodeNotify('workbench.action.showAllSymbols')<cr>")
 
     -- Files
