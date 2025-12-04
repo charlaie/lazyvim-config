@@ -53,6 +53,17 @@ vim.api.nvim_create_autocmd("User", {
       })
     end, { desc = "Search word in files" })
 
+    -- Go to definitions
+    keymap("n", "gr", function()
+      vscode.action("editor.action.goToReferences")
+    end, { desc = "Go to references" })
+    keymap("n", "gy", function()
+      vscode.action("editor.action.goToTypeDefinition")
+    end, { desc = "Go to type definition" })
+    keymap("n", "gI", function()
+      vscode.action("editor.action.goToImplementation")
+    end, { desc = "Go to implementation" })
+
     -- Search in files with visual selection
     keymap("v", "<leader>/", function()
       vscode.action("workbench.action.findInFiles")
@@ -113,7 +124,7 @@ vim.api.nvim_create_autocmd("User", {
     )
 
     -- Search symbol by type
-    keymap("n", "<leader>ss", "<cmd>call VSCodeNotify('workbench.action.quickOpen', '@)<cr>")
+    keymap("n", "<leader>ss", "<cmd>call VSCodeNotify('workbench.action.quickOpen', '@')<cr>")
     keymap("n", "<leader>sS", "<cmd>call VSCodeNotify('workbench.action.showAllSymbols')<cr>")
 
     -- Files
