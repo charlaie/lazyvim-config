@@ -94,6 +94,7 @@ vim.api.nvim_create_autocmd("User", {
     keymap("n", "<leader>sd", function()
       vscode.action("workbench.actions.view.problems")
     end, { desc = "View Diagnostics" })
+    keymap("n", "<leader>cd", "<cmd>call VSCodeNotify('editor.action.marker.next')<cr>", { desc = "Line Diagnostic" })
     keymap("n", "]d", "<cmd>call VSCodeNotify('editor.action.marker.next')<cr>", { desc = "Prev Diagnostic" })
     keymap("n", "[d", "<cmd>call VSCodeNotify('editor.action.marker.prev')<cr>", { desc = "Next Diagnostic" })
     keymap(
